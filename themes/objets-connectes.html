@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objets connectés — SNT</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="t-iot">
+  <div id="nav-slot"></div>
+
+  <section class="hero">
+    <p class="kicker">Thème 6 · Programme de SNT</p>
+    <h1>Informatique embarquée &amp; objets connectés, <em>du code dans le monde réel</em></h1>
+    <p>Un objet connecté, c'est une machine qui <b>mesure</b> le monde (capteur), <b>décide</b> (programme) et <b>agit</b> (actionneur), le tout relié à un réseau. Découvre comment avec un microcontrôleur Arduino.</p>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title reveal">Frise chronologique<small>De la calculatrice de poche à l'Internet des objets.</small></h2>
+    <div class="timeline">
+      <div class="event reveal">
+        <span class="year">1971</span>
+        <h4>Le premier microprocesseur, Intel 4004</h4>
+        <p>4 bits, 2 300 transistors : le calcul sort des ordinateurs géants pour tenir dans une machine (ici, une calculatrice).</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1975</span>
+        <h4>Altair 8800 : l'ordinateur personnel</h4>
+        <p>Un kit à monter soi-même popularisé par le magazine Popular Electronics : l'informatique domestique est lancée.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1980 → 1990</span>
+        <h4>L'informatique embarquée s'invite partout</h4>
+        <p>Microcontrôleurs dans les voitures (freinage ABS), les appareils électroménagers, les montres : l'informatique sort de l'ordinateur.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1999</span>
+        <h4>Le terme « Internet des objets » (IoT)</h4>
+        <p>Kevin Ashton imagine des objets du quotidien connectés entre eux et à Internet.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2005</span>
+        <h4>Arduino : l'électronique pour tous</h4>
+        <p>Une carte open source, peu coûteuse et simple à programmer, démocratise la fabrication d'objets connectés (étudiants, artistes, bricoleurs).</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2008</span>
+        <h4>Premier objet connecté grand public : le Nabaztag</h4>
+        <p>Un lapin connecté qui lit la météo et les e-mails : l'IoT sort des laboratoires.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2014</span>
+        <h4>Amazon Echo et les assistants vocaux</h4>
+        <p>Alexa, puis Siri et Google Assistant : des milliards d'objets domestiques écoutent et répondent.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2020 → aujourd'hui</span>
+        <h4>Des dizaines de milliards d'objets connectés</h4>
+        <p>Thermostats, montres, voitures, frigos, villes entières : l'IoT est partout, avec ses promesses et ses risques (sécurité, vie privée).</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Activité express<small>⏱ 10 minutes — directement dans cette page.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Activité</span>
+        <h3>Programme une veilleuse automatique (Arduino)</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Une <b>veilleuse connectée</b> allume sa LED quand il fait sombre. Sur une carte Arduino :</p>
+        <ul style="margin:0 0 14px 20px; color:var(--muted); font-size:.93rem">
+          <li>broche <b>A0</b> ← capteur de luminosité (<code>analogRead</code> renvoie 0 = très lumineux … 1023 = obscur)</li>
+          <li>broche <b>13</b> → LED (allumée avec <code>HIGH</code>, éteinte avec <code>LOW</code>)</li>
+        </ul>
+        <div class="code-block"><span class="kw">const int</span> led = 13;      <span class="cm">// la LED</span>
+<span class="kw">const int</span> capteur = A0;  <span class="cm">// le capteur de lumière</span>
+
+<span class="kw">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(led, OUTPUT);
+}
+
+<span class="kw">void</span> <span class="fn">loop</span>() {
+  <span class="kw">int</span> lumiere = <span class="fn">analogRead</span>(capteur);
+  ???
+}</div>
+        <p>À la place de <code>???</code>, quelle instruction faut-il écrire pour que la LED s'allume quand <code>lumiere</code> est inférieur à 500 (obscurité) et s'éteigne sinon ?</p>
+        <div data-quiz="iot-code"></div>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Quiz</span>
+        <h3>Capteurs &amp; objets connectés</h3>
+        <span class="time">⏱ 5 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Deux questions pour ancrer le vocabulaire : capteur, actionneur, objet connecté.</p>
+        <div data-quiz="iot"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

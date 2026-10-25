@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photographie numérique — SNT</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="t-photo">
+  <div id="nav-slot"></div>
+
+  <section class="hero">
+    <p class="kicker">Thème 7 · Programme de SNT</p>
+    <h1>La photographie numérique, <em>des pixels en RVB</em></h1>
+    <p>Derrière chaque photo se cache une grille de pixels, chacun codé par trois nombres. Capteur, métadonnées EXIF, compression : l'image numérique, expliquée.</p>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title reveal">Frise chronologique<small>De la chambre noire au smartphone de 108 mégapixels.</small></h2>
+    <div class="timeline">
+      <div class="event reveal">
+        <span class="year">1826</span>
+        <h4>Première photographie (argentique)</h4>
+        <p>Nicéphore Niépce fixe une image sur une plaque d'étain avec du bitume de Judée : 8 heures de pose au soleil.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1900</span>
+        <h4>La pellicule Kodak</h4>
+        <p>« Vous appuyez sur le bouton, nous faisons le reste » : la photo devient un objet de consommation de masse.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1969</span>
+        <h4>Le capteur CCD est inventé</h4>
+        <p>Willard Boyle et George Smith (Bell Labs) créent le capteur qui convertit la lumière en signal électrique — prix Nobel 2009.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1975</span>
+        <h4>Premier appareil numérique (Kodak)</h4>
+        <p>3,6 kg, une cassette audio comme stockage, une image de 0,01 mégapixel en noir et blanc.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1986</span>
+        <h4>Le format JPEG est normalisé</h4>
+        <p>La compression JPEG permet de stocker et de partager des photos sans les alourdir démesurément.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2000</span>
+        <h4>Le téléphone intègre un appareil photo</h4>
+        <p>Sharp J-SH04 au Japon : la photo sort de l'appareil dédié et entre dans la poche de tout le monde.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2002</span>
+        <h4>Les métadonnées EXIF</h4>
+        <p>Chaque photo JPEG embarque un « passeport » : date, modèle d'appareil, ouverture, ISO… et parfois les coordonnées GPS de la prise de vue.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2010 → aujourd'hui</span>
+        <h4>La course aux mégapixels et au calcul</h4>
+        <p>Smartphones multi-capteurs, HDR, traitement par intelligence artificielle : la photo numérique devient de la « photographie computationnelle ».</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Activité express<small>⏱ 10 minutes — directement dans cette page.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Activité</span>
+        <h3>Pixellise ta scène</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Une image numérique, c'est une <b>grille de pixels</b> : chaque case de la grille est un « gros pixel » coloré. Bouge le curseur pour changer la taille des pixels et observe l'image se dégrader… comme le rétro-gaming !</p>
+        <div class="cam-zone">
+          <div class="cam-canvas-wrap">
+            <canvas id="pixel-canvas" width="256" height="192"></canvas>
+          </div>
+          <div class="cam-side">
+            <div class="slider-row">
+              <label for="pixel-size">Taille d'un pixel : <b id="pixel-size-out">16 px</b></label>
+              <input type="range" id="pixel-size" min="2" max="32" step="2" value="16">
+            </div>
+            <div class="readout" id="cam-readout"></div>
+          </div>
+        </div>
+        <p style="margin-top:14px">Chaque pixel se code en <b>RVB</b> (Rouge, Vert, Bleu) : trois nombres de 0 à 255, soit <b>3 octets</b> par pixel. L'octet est l'unité de base de l'informatique — tu le retrouves dans la rubrique <a href="binaire.html" style="color:var(--accent)">Codage binaire</a> !</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Quiz</span>
+        <h3>Capteurs &amp; compression</h3>
+        <span class="time">⏱ 5 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Deux questions sur la couleur numérique et le format JPEG.</p>
+        <div data-quiz="photo"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

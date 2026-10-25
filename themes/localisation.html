@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Localisation &amp; mobilité — SNT</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="t-geo">
+  <div id="nav-slot"></div>
+
+  <section class="hero">
+    <p class="kicker">Thème 5 · Programme de SNT</p>
+    <h1>Localisation, cartographie, mobilité, <em>où es-tu ?</em></h1>
+    <p>GPS, Galileo, coordonnées géographiques : ton téléphone sait où tu es à quelques mètres près. Comment ? Grâce à des satellites et à la mesure du temps de trajet des signaux radio.</p>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title reveal">Frise chronologique<small>Des balises de navigation au GPS dans la poche.</small></h2>
+    <div class="timeline">
+      <div class="event reveal">
+        <span class="year">Antiquité → 1960</span>
+        <h4>Se repérer avant les satellites</h4>
+        <p>Observation du Soleil et des étoiles, boussole, cartes maritimes (portulans), puis balises radio (LORAN) pendant la Seconde Guerre mondiale.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1957</span>
+        <h4>Spoutnik et l'effet Doppler</h4>
+        <p>Deux scientifiques américains suivent la trajectoire du premier satellite en mesurant le décalage de fréquence de son signal : la géolocalisation par satellite est née.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1973</span>
+        <h4>Le projet GPS est lancé</h4>
+        <p>Le Pentagone lance le programme NAVSTAR-GPS. Le système devient pleinement opérationnel avec 24 satellites en 1995.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1978</span>
+        <h4>Le premier récepteur GPS portable</h4>
+        <p>« Le Magellan NAV 1000 » tient dans une main : 4,5 kg, 1 500 dollars. Les récepteurs deviennent grand public dans les années 1990.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2000</span>
+        <h4>La « disponibilité sélective » est levée</h4>
+        <p>Jusque-là, l'armée américaine brouillait le signal civil. Sa levée passe la précision civile de ~100 m à ~10 m d'un coup.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2000</span>
+        <h4>Google Maps lance la cartographie en ligne</h4>
+        <p>Le plan du monde devient interactif, zoomable et gratuit sur ordinateur, puis sur mobile.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2007</span>
+        <h4>Le GPS dans le smartphone</h4>
+        <p>L'iPhone intègre un récepteur GPS : la localisation devient un service du quotidien (itinéraires, livraison, sport…).</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2016 → 2018</span>
+        <h4>Galileo : l'Europe se dote de son GPS</h4>
+        <p>Le système européen Galileo devient opérationnel avec une précision de l'ordre du mètre, indépendant des États-Unis.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Activité express<small>⏱ 5 minutes — directement dans cette page.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Activité</span>
+        <h3>Joue avec les coordonnées GPS</h3>
+        <span class="time">⏱ 5 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Une coordonnée GPS, c'est un couple <b>latitude / longitude</b>. La latitude mesure la distance à l'équateur (0° à ±90° Nord/Sud), la longitude la distance au méridien de Greenwich (0° à ±180° Est/Ouest). <b>Déplace le pin sur la carte</b> et observe tes coordonnées changer en temps réel :</p>
+        <div class="map-zone" id="map-zone">
+          <div class="grid-lines"></div>
+          <div class="map-pin" style="left:62%; top:40%"></div>
+        </div>
+        <div class="coords-out" id="coords-out"></div>
+        <p style="margin-top:14px">Le point (0 ; 0) — équateur × méridien de Greenwich — se trouve dans le golfe de Guinée, au large du Gabon. On l'appelle « Null Island ».</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Quiz</span>
+        <h3>GPS &amp; coordonnées</h3>
+        <span class="time">⏱ 5 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Deux questions sur le fonctionnement du GPS et la lecture des coordonnées.</p>
+        <div data-quiz="geo"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
