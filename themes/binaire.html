@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codage binaire — SNT</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="t-binaire">
+  <div id="nav-slot"></div>
+
+  <section class="hero">
+    <p class="kicker">Rubrique bonus · À la base de tout</p>
+    <h1>Le codage binaire, <em>0 et 1, c'est tout</em></h1>
+    <p>Toutes les machines numériques — ordinateurs, smartphones, objets connectés — ne comprennent qu'une chose : des 0 et des 1. Découvre comment on compte en base 2, et manipule un vrai convertisseur.</p>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title reveal">Frise chronologique<small>De Leibniz aux microprocesseurs : 350 ans d'histoire d'une idée simple.</small></h2>
+    <div class="timeline">
+      <div class="event reveal">
+        <span class="year">1679</span>
+        <h4>Leibniz formalise le binaire</h4>
+        <p>Gottfried Wilhelm Leibniz décrit le système de numération en base 2, où seuls 0 et 1 existent : chaque position vaut une puissance de 2 (1, 2, 4, 8, 16…).</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1854</span>
+        <h4>L'algèbre de Boole</h4>
+        <p>George Boole crée une logique mathématique fondée sur deux valeurs (vrai/faux, oui/non) : les futurs circuits électroniques s'appuieront sur elle.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1938</span>
+        <h4>Shannon applique le binaire à l'électronique</h4>
+        <p>Dans sa thèse, Claude Shannon montre qu'un circuit électrique avec des interrupteurs ouvert/fermé peut calculer n'importe quelle fonction logique.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1947</span>
+        <h4>Le transistor</h4>
+        <p>Inventé aux laboratoires Bell, ce composant semi-conducteur peut être « ouvert » ou « fermé » : c'est l'interrupteur parfait pour le binaire (prix Nobel 1956).</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1958</span>
+        <h4>Le circuit intégré</h4>
+        <p>Jack Kilby et Robert Noyce gravent plusieurs transistors sur une même puce de silicium : des milliards de 0/1 dans quelques millimètres carrés.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1969</span>
+        <h4>ASCII : les caractères deviennent des nombres</h4>
+        <p>Un standard attribue un nombre à chaque lettre : « A » = 65 = <code>01000001</code>. Le texte devient du binaire.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1971</span>
+        <h4>Le premier microprocesseur, Intel 4004</h4>
+        <p>2 300 transistors cadencés à 740 kHz : le calcul binaire quitte les salles climatisées.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">Aujourd'hui</span>
+        <h4>Des milliards de milliards de 0 et de 1</h4>
+        <p>Un smartphone moderne embarque des dizaines de milliards de transistors. Tout — texte, image, son, vidéo — y est finalement stocké en binaire.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Activité express<small>⏱ 10 minutes — directement dans cette page.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Activité</span>
+        <h3>Convertisseur binaire interactif</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Chaque chiffre binaire (un « bit ») occupe une position qui vaut une puissance de 2. <b>Clique sur les bits</b> pour les faire passer de 0 à 1 et observe la valeur décimale et le caractère ASCII évoluer en direct. À droite, tape du texte pour le voir traduit en binaire.</p>
+        <div class="conv-grid">
+          <div class="conv-box">
+            <label>Bits (clique pour inverser)</label>
+            <div class="bit-row" id="bits"></div>
+            <div class="pow-row" id="powers"></div>
+            <p style="margin-top:14px">Valeur décimale : <span class="big-result" id="dec-out">0</span></p>
+            <p>Caractère ASCII : <span class="big-result" id="char-out">—</span></p>
+            <p style="margin-top:10px; font-size:.85rem">Objectif : code la lettre « A » (65) en binaire. Indice : 65 = 64 + 1.</p>
+          </div>
+          <div class="conv-box">
+            <label>Texte → binaire</label>
+            <input type="text" id="text-in" maxlength="8" placeholder="Tape un mot…" autocomplete="off">
+            <p style="margin-top:12px">Binaire (8 bits par caractère) :</p>
+            <p class="big-result" id="bin-out" style="font-size:1.1rem">…</p>
+          </div>
+        </div>
+        <p style="margin-top:14px">Rappel des préfixes : 8 bits = 1 octet (byte) · 1 Ko = 1024 octets · 1 Mo = 1024 Ko · 1 Go = 1024 Mo.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Quiz</span>
+        <h3>Compter en base 2</h3>
+        <span class="time">⏱ 5 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Trois questions pour vérifier que la base 2 n'a plus de secret pour toi.</p>
+        <div data-quiz="binaire"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

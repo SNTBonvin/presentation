@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Données structurées — SNT</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="t-donnees">
+  <div id="nav-slot"></div>
+
+  <section class="hero">
+    <p class="kicker">Thème 4 · Programme de SNT</p>
+    <h1>Données structurées &amp; formats, <em>organiser pour mieux traiter</em></h1>
+    <p>Un tableur, une base de données, une API : derrière chaque service se cachent des données organisées. CSV, JSON, descripteurs — les formats qui font tourner l'information.</p>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title reveal">Frise chronologique<small>De la fiche cartonnée au « big data ».</small></h2>
+    <div class="timeline">
+      <div class="event reveal">
+        <span class="year">1970</span>
+        <h4>Le modèle relationnel</h4>
+        <p>Edgar F. Codd (IBM) propose de ranger les données dans des tableaux (lignes × colonnes) reliés entre eux : les bases de données modernes sont nées.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1979</span>
+        <h4>VisiCalc, premier tableur</h4>
+        <p>La feuille de calcul électronique lance la révolution du calcul sur ordinateur personnel.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1985</span>
+        <h4>Microsoft Excel</h4>
+        <p>La feuille de calcul se généralise au grand public et dans toutes les entreprises.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1998</span>
+        <h4>XML standardisé</h4>
+        <p>Le W3C recommande XML : un format universel pour échanger des données structurées entre machines différentes.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2000 → 2010</span>
+        <h4>JSON et open data</h4>
+        <p>JSON s'impose dans les API web ; l'open data ouvre les données publiques (data.gouv.fr en France).</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2010</span>
+        <h4>Le « big data »</h4>
+        <p>Traiter des volumes gigantesques de données (mégadonnées) devient un enjeu industriel et scientifique majeur.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2018</span>
+        <h4>Le RGPD encadre les données</h4>
+        <p>En Europe, les données personnelles sont protégées par la loi : consentement, accès, effacement.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Activité express<small>⏱ 10 minutes — directement dans cette page.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Activité</span>
+        <h3>Complète le carnet de notes (CSV)</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Ce carnet de notes est au format <b>CSV</b> : un texte brut où chaque ligne est un enregistrement et où les valeurs sont séparées par un séparateur fixe (« ; »). La moyenne de chaque élève est la moyenne de ses trois notes :</p>
+        <table class="data">
+          <tr><th>Élève</th><th>Note 1</th><th>Note 2</th><th>Note 3</th><th>Moyenne</th></tr>
+          <tr><td>Lucas Martin</td><td>14</td><td>12</td><td>16</td><td>14</td></tr>
+          <tr><td>Emma Bernard</td><td>11</td><td>13</td><td>12</td><td>12</td></tr>
+          <tr><td>Sarah Durand</td><td>15</td><td>12</td><td>?</td><td>13,5</td></tr>
+        </table>
+        <p>Sarah Durand, de la classe <b>2nde 1</b>, a eu 15 puis 12 et sa moyenne doit être 13,5. <b>Quelle est sa troisième note ?</b> Ajoute sa ligne au fichier CSV ci-dessous, puis vérifie :</p>
+        <div id="csv-activity">
+          <textarea rows="6" spellcheck="false">nom;prénom;classe;note
+Martin;Lucas;2nde 1;14
+Bernard;Emma;2nde 2;11</textarea>
+          <div style="margin-top:14px"><button type="button" class="btn">Vérifier mon CSV</button></div>
+          <p class="feedback"></p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Quiz</span>
+        <h3>CSV &amp; JSON</h3>
+        <span class="time">⏱ 5 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Deux questions sur les formats de données structurées.</p>
+        <div data-quiz="donnees"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

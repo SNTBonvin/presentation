@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Web — SNT</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="t-web">
+  <div id="nav-slot"></div>
+
+  <section class="hero">
+    <p class="kicker">Thème 2 · Programme de SNT</p>
+    <h1>Le Web, <em>des pages reliées entre elles</em></h1>
+    <p>Quand tu ouvres une page, ton navigateur échange avec un serveur à l'autre bout du monde en quelques millisecondes. HTTP, HTML, URL : les trois inventions qui ont créé le Web.</p>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title reveal">Frise chronologique<small>Du document hypertexte au milliard de sites, de 1989 à aujourd'hui.</small></h2>
+    <div class="timeline">
+      <div class="event reveal">
+        <span class="year">1989</span>
+        <h4>Une proposition au CERN</h4>
+        <p>Tim Berners-Lee, chercheur au CERN, propose un système de « gestion de l'information » : des documents reliés entre eux par des liens hypertexte.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1990</span>
+        <h4>HTTP, HTML, URL — et la première page</h4>
+        <p>Il crée le premier navigateur (WorldWideWeb), le premier serveur web et la toute première page web : info.cern.ch. Trois inventions d'un coup.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1993</span>
+        <h4>Mosaic : le Web en images</h4>
+        <p>Premier navigateur graphique grand public avec images intégrées : le Web explose hors des universités.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1994</span>
+        <h4>Le W3C standardise le Web</h4>
+        <p>Fondation du consortium qui définit les langages du Web (HTML, CSS…) pour qu'ils fonctionnent partout, de la même façon.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1995</span>
+        <h4>JavaScript : les pages vivent</h4>
+        <p>Créé en 10 jours par Brendan Eich chez Netscape, JavaScript rend les pages interactives.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">1998</span>
+        <h4>Google : la porte d'entrée du Web</h4>
+        <p>Face à un Web devenu immense, le moteur de recherche devient le point de départ de toute navigation.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2004</span>
+        <h4>Le « Web 2.0 »</h4>
+        <p>Les internautes produisent le contenu : Wikipédia, blogs, réseaux sociaux. Lire ne suffit plus, chacun publie.</p>
+      </div>
+      <div class="event reveal">
+        <span class="year">2010</span>
+        <h4>HTML5 et le Web mobile</h4>
+        <p>Le navigateur rivalise avec les applications natives : le Web devient la plateforme universelle.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Activité express<small>⏱ 5 minutes — directement dans cette page.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Activité</span>
+        <h3>Une URL, ça se lit</h3>
+        <span class="time">⏱ 5 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Une URL décrit un protocole, un domaine, parfois un port, un chemin et des paramètres :</p>
+        <div class="code-block">protocole  : https            ← échange sécurisé (port 443)
+domaine    : www.exemple.fr ← le serveur contacté
+chemin     : /cours/snt     ← la ressource demandée
+paramètre  : ?page=2         ← transmis à la page</div>
+        <p>Coche les adresses valides, puis vérifie ta réponse.</p>
+        <div data-multi="web"></div>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Quiz</span>
+        <h3>HTTP &amp; URL</h3>
+        <span class="time">⏱ 5 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Deux questions pour ancrer les bases du protocole qui fait le Web.</p>
+        <div data-quiz="web"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
