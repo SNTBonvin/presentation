@@ -89,6 +89,56 @@
       </div>
     </div>
 
+    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Python</span>
+        <h3>Simule ta veilleuse connectée</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Sur une vraie carte Arduino, on écrirait du C++. En Python, on peut <b>simuler le même comportement</b> : lire un capteur de luminosité et allumer une LED quand il fait sombre. Le programme ci-dessous simule 10 mesures de capteur (du jour vers la nuit). <b>Exécute-le, puis change le seuil de déclenchement !</b></p>
+        <div class="py-editor" data-python>
+          <div class="py-toolbar">
+            <button type="button" class="btn py-run">▶ Exécuter</button>
+            <button type="button" class="btn ghost py-reset">Réinitialiser</button>
+            <span class="py-status"></span>
+          </div>
+          <textarea class="py-code" spellcheck="false"># Simulation d'une veilleuse connectée
+# Sur Arduino : lumiere = analogRead(A0) et digitalWrite(13, HIGH)
+
+SEUIL = 500  # en dessous : il fait sombre -> on allume
+
+# 10 mesures du capteur au fil de la journée (0 = lumineux, 1023 = obscur)
+mesures = [80, 120, 260, 430, 510, 640, 780, 880, 950, 990]
+
+etat_led = "éteinte"
+for minute, lumiere in enumerate(mesures, start=1):
+    if lumiere < SEUIL:
+        nouvel_etat = "ALLUMÉE"
+    else:
+        nouvel_etat = "éteinte"
+
+    if nouvel_etat != etat_led:
+        print("Minute", minute, ": la LED passe à", nouvel_etat,
+              "(luminosité =", lumiere, ")")
+        etat_led = nouvel_etat
+    else:
+        print("Minute", minute, ": LED", etat_led, "(luminosité =", lumiere, ")")
+
+print()
+print("Bilan : la veilleuse s'est allumée quand la luminosité")
+print("est tombée sous", SEUIL, ".")
+
+# Défi 1 : change SEUIL à 300 et observe la différence
+# Défi 2 : ajoute une mesure toutes les 2 minutes
+#          (indice : utilise range(0, 21, 2))</textarea>
+          <pre class="py-output">(clique sur « Exécuter » pour lancer le code)</pre>
+        </div>
+        <p class="py-hint">Ce <code>if / else</code> est exactement la boucle <code>loop()</code> d'un programme Arduino : lire un capteur, décider, agir — en boucle, des milliers de fois par seconde.</p>
+      </div>
+    </div>
+
     <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
     <div class="activity reveal">
       <div class="activity-head">
@@ -105,5 +155,6 @@
 
   <div id="footer-slot"></div>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/python.js"></script>
 </body>
 </html>

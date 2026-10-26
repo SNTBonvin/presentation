@@ -78,6 +78,48 @@
       </div>
     </div>
 
+    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Python</span>
+        <h3>Calcule une distance à vol d'oiseau</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Le GPS donne des <b>coordonnées</b> (latitude, longitude). À partir de deux positions, on peut calculer la distance qui les sépare « à vol d'oiseau » avec la <b>formule de Haversine</b>. Le programme ci-dessous le fait pour le trajet lycée → tour Eiffel. <b>Exécute-le, puis essaie avec les coordonnées de ta ville !</b></p>
+        <div class="py-editor" data-python>
+          <div class="py-toolbar">
+            <button type="button" class="btn py-run">▶ Exécuter</button>
+            <button type="button" class="btn ghost py-reset">Réinitialiser</button>
+            <span class="py-status"></span>
+          </div>
+          <textarea class="py-code" spellcheck="false">from math import radians, sin, cos, sqrt, atan2
+
+def haversine(lat1, lon1, lat2, lon2):
+    """Distance en km entre deux points GPS (formule de Haversine)."""
+    R = 6371  # rayon de la Terre en km
+    dlat = radians(lat2 - lat1)
+    dlon = radians(lon2 - lon1)
+    a = sin(dlat / 2) ** 2 + cos(radians(lat1)) * cos(radians(lat2)) * sin(dlon / 2) ** 2
+    return 2 * R * atan2(sqrt(a), sqrt(1 - a))
+
+# Coordonnées GPS (latitude, longitude)
+lycee = (48.8566, 2.3522)      # Paris, centre
+tour_eiffel = (48.8584, 2.2945)  # Tour Eiffel
+gare_du_nord = (48.8809, 2.3553) # Gare du Nord
+
+for nom, (lat, lon) in [("Tour Eiffel", tour_eiffel), ("Gare du Nord", gare_du_nord)]:
+    d = haversine(lycee[0], lycee[1], lat, lon)
+    print("Distance lycée ->", nom, ":", round(d, 2), "km")
+
+# Défi : remplace les coordonnées par celles de ta maison
+# et de ton lycée pour calculer la distance réelle.</textarea>
+          <pre class="py-output">(clique sur « Exécuter » pour lancer le code)</pre>
+        </div>
+        <p class="py-hint">La formule de Haversine tient compte de la courbure de la Terre : sur de petites distances, une simple différence de degrés suffit, mais sur des centaines de kilomètres elle devient indispensable.</p>
+      </div>
+    </div>
+
     <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
     <div class="activity reveal">
       <div class="activity-head">
@@ -94,5 +136,6 @@
 
   <div id="footer-slot"></div>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/python.js"></script>
 </body>
 </html>

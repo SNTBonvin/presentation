@@ -73,6 +73,52 @@
       </div>
     </div>
 
+    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Python</span>
+        <h3>Qui est connecté à qui ?</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Un réseau social, c'est un <b>graphe</b> : des personnes (les sommets) reliées par des amitiés (les arêtes). Le programme ci-dessous représente ce graphe avec un <b>dictionnaire</b> et compte les amis de chacun. <b>Ajoute un personnage et une amitié, puis exécute !</b></p>
+        <div class="py-editor" data-python>
+          <div class="py-toolbar">
+            <button type="button" class="btn py-run">▶ Exécuter</button>
+            <button type="button" class="btn ghost py-reset">Réinitialiser</button>
+            <span class="py-status"></span>
+          </div>
+          <textarea class="py-code" spellcheck="false"># Le réseau social : chaque personne a une liste d'amis
+graphe = {
+    "Alice": ["Bob", "Chloé"],
+    "Bob": ["Alice", "Chloé", "David"],
+    "Chloé": ["Alice", "Bob"],
+    "David": ["Bob"],
+}
+
+print("=== Nombre d'amis de chacun ===")
+for personne, amis in graphe.items():
+    print(personne, "->", len(amis), "ami(s) :", ", ".join(amis))
+
+print()
+print("=== Les personnes les plus populaires ===")
+nom_max = ""
+nombre_max = -1
+for personne, amis in graphe.items():
+    if len(amis) > nombre_max:
+        nombre_max = len(amis)
+        nom_max = personne
+print(nom_max, "est la plus populaire avec", nombre_max, "amis")
+
+# Défi 1 : ajoute "Emma" avec Bob et David comme amis
+# Défi 2 : écris une boucle qui affiche les amis EN COMMUN
+#          de Alice et de Bob</textarea>
+          <pre class="py-output">(clique sur « Exécuter » pour lancer le code)</pre>
+        </div>
+        <p class="py-hint">Sur un vrai réseau social, ce graphe compte des milliards de sommets : impossible à parcourir à la main, d'où les algorithmes de recommandation.</p>
+      </div>
+    </div>
+
     <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
     <div class="activity reveal">
       <div class="activity-head">
@@ -89,5 +135,6 @@
 
   <div id="footer-slot"></div>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/python.js"></script>
 </body>
 </html>

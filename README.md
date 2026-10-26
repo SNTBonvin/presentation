@@ -19,6 +19,7 @@ Chaque page contient :
 
 - une **frise chronologique** des principales évolutions du domaine (en lien avec le programme) ;
 - une **activité express** interactive (quiz, QCM, éditeur CSV, carte GPS draggable, simulateur de pixellisation, convertisseur binaire) ;
+- une **activité Python** : éditeur avec console intégrée, le code s'exécute directement dans le navigateur grâce à Pyodide (comme Basthon) ;
 - un **quiz d'auto-évaluation** avec correction immédiate.
 
 ## Utilisation
@@ -32,6 +33,7 @@ python3 -m http.server 8000
 ```
 
 Le site est 100 % autonome côté client : aucune donnée n'est collectée.
+**Note** : les activités Python chargent l'interpréteur Pyodide depuis un CDN lors de la *première exécution* — une connexion Internet est nécessaire à ce moment-là (le reste du site fonctionne hors connexion).
 
 ## Structure
 
@@ -40,4 +42,5 @@ index.html                  ← accueil
 themes/*.html               ← les 8 rubriques
 assets/css/style.css        ← design commun + 8 identités visuelles
 assets/js/main.js           ← navigation, quiz, activités, effet Matrix
+assets/js/python.js         ← éditeur Python (Pyodide) exécuté dans le navigateur
 ```

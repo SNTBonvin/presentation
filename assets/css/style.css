@@ -413,3 +413,29 @@ body.t-binaire #matrix { position: fixed; inset: 0; z-index: -1; opacity: .22; p
   .navbar { flex-direction: column; gap: 10px; }
   .activity .activity-head .time { margin-left: 0; }
 }
+
+/* ============ Éditeur Python (Pyodide, exécuté dans le navigateur) ============ */
+.py-editor { border: 1px solid rgba(255,255,255,.14); border-radius: 14px; overflow: hidden; background: var(--bg); }
+.py-toolbar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 12px 16px; background: var(--surface-2); border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.py-status { font-family: var(--font-mono); font-size: .8rem; color: var(--muted); }
+.py-code {
+  display: block; width: 100%; min-height: 230px; resize: vertical;
+  font-family: var(--font-mono); font-size: .88rem; line-height: 1.6; tab-size: 4;
+  background: #0a0c11; color: #d7e0f5; border: none; outline: none;
+  padding: 16px 18px; white-space: pre; overflow: auto;
+}
+.py-output {
+  margin: 0; padding: 14px 18px; min-height: 56px; max-height: 280px; overflow: auto;
+  font-family: var(--font-mono); font-size: .85rem; line-height: 1.55;
+  white-space: pre-wrap; word-break: break-word;
+  background: #07090e; color: #9fe8bb; border-top: 1px solid rgba(255,255,255,.1); border-radius: 0;
+}
+.py-err { color: #ff7d7d; }
+.py-hint { margin-top: 12px; font-size: .82rem; color: var(--muted); }
+body.t-photo .py-code, body.t-photo .py-output { font-family: 'VT323', monospace; font-size: 1.2rem; }
+body.t-binaire .py-code { color: #b8ffcf; text-shadow: 0 0 5px rgba(57,255,106,.5); }
+body.t-binaire .py-output { color: #7fd69a; }
+body.t-binaire .py-err { color: #ff5470; text-shadow: 0 0 6px rgba(255,84,112,.7); }

@@ -89,6 +89,46 @@
       </div>
     </div>
 
+    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Python</span>
+        <h3>Écris toi-même la conversion binaire</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Python connaît déjà la fonction <code>bin()</code>, mais le but ici est de <b>comprendre comment elle fonctionne</b> : le programme ci-dessous convertit un nombre décimal en binaire « à la main », par divisions successives par 2. <b>Exécute-le avec plusieurs nombres !</b></p>
+        <div class="py-editor" data-python>
+          <div class="py-toolbar">
+            <button type="button" class="btn py-run">▶ Exécuter</button>
+            <button type="button" class="btn ghost py-reset">Réinitialiser</button>
+            <span class="py-status"></span>
+          </div>
+          <textarea class="py-code" spellcheck="false">def vers_binaire(n):
+    """Convertit un entier positif en binaire, sans utiliser bin()."""
+    if n == 0:
+        return "0"
+    bits = ""
+    while n > 0:
+        reste = n % 2        # le bit de poids faible
+        bits = str(reste) + bits
+        n = n // 2           # on passe à la puissance de 2 suivante
+    return bits
+
+print("De 0 à 16 en binaire :")
+for nombre in range(17):
+    b = vers_binaire(nombre)
+    print(nombre, "->", b, "   (vérification : bin() donne", bin(nombre) + ")")
+
+# Défi : écris la fonction inverse, binaire_vers_decimal("1010"),
+# qui additionne les puissances de 2 (1, 2, 4, 8...) ;
+# indice : commence à 0 et multiplie par 2 à chaque bit lu.</textarea>
+          <pre class="py-output">(clique sur « Exécuter » pour lancer le code)</pre>
+        </div>
+        <p class="py-hint">La division par 2 et le reste <code>% 2</code> sont exactement ce que fait un circuit électronique quand il lit un nombre bit par bit.</p>
+      </div>
+    </div>
+
     <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
     <div class="activity reveal">
       <div class="activity-head">
@@ -105,5 +145,6 @@
 
   <div id="footer-slot"></div>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/python.js"></script>
 </body>
 </html>

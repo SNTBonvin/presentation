@@ -78,6 +78,52 @@ paramètre  : ?page=2         ← transmis à la page</div>
       </div>
     </div>
 
+    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Python</span>
+        <h3>Génère ta première page HTML</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Une page web, c'est du <b>HTML</b> : du texte structuré par des balises. Le programme ci-dessous <b>génère</b> une mini page à partir d'un titre et d'un paragraphe. Exécute-le, puis modifie le titre, le texte, ou ajoute une ligne <code>&lt;h2&gt;</code> dans la liste pour voir le HTML produit changer.</p>
+        <div class="py-editor" data-python>
+          <div class="py-toolbar">
+            <button type="button" class="btn py-run">▶ Exécuter</button>
+            <button type="button" class="btn ghost py-reset">Réinitialiser</button>
+            <span class="py-status"></span>
+          </div>
+          <textarea class="py-code" spellcheck="false">titre = "Ma première page"
+sous_titres = ["Le Web, c'est quoi ?", "Comment ça marche ?"]
+
+page = "&lt;!DOCTYPE html&gt;\n"
+page += "&lt;html lang=\"fr\">\n"
+page += "  &lt;head&gt;\n"
+page += "    &lt;meta charset=\"UTF-8\">\n"
+page += "    &lt;title&gt;" + titre + "&lt;/title&gt;\n"
+page += "  &lt;/head&gt;\n"
+page += "  &lt;body&gt;\n"
+page += "    &lt;h1&gt;" + titre + "&lt;/h1&gt;\n"
+
+for st in sous_titres:
+    page += "    &lt;h2&gt;" + st + "&lt;/h2&gt;\n"
+    page += "    &lt;p&gt;Un paragraphe de démonstration.&lt;/p&gt;\n"
+
+page += "  &lt;/body&gt;\n"
+page += "&lt;/html&gt;\n"
+
+print(page)
+print("---")
+print("Nombre de balises générées :", page.count("&lt;"))
+
+# Défi : ajoute un troisième sous-titre dans la liste,
+# ou remplace le &lt;p&gt; par un &lt;ul&gt; avec deux &lt;li&gt;.</textarea>
+          <pre class="py-output">(clique sur « Exécuter » pour lancer le code)</pre>
+        </div>
+        <p class="py-hint">Le HTML affiché est exactement ce que ton navigateur reçoit du serveur quand tu ouvres une page : du texte avec des balises.</p>
+      </div>
+    </div>
+
     <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
     <div class="activity reveal">
       <div class="activity-head">
@@ -94,5 +140,6 @@ paramètre  : ?page=2         ← transmis à la page</div>
 
   <div id="footer-slot"></div>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/python.js"></script>
 </body>
 </html>

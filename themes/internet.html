@@ -73,6 +73,53 @@
       </div>
     </div>
 
+    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Python</span>
+        <h3>Un mini-chat entre deux machines</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Sur Internet, ton ordinateur est identifié par une <b>adresse IP</b> (ex : <code>192.168.1.42</code>). Le programme ci-dessous simule l'envoi d'un message entre deux machines : il vérifie que les adresses sont valides (4 nombres de 0 à 255), puis « transmet » le message. <b>Modifie-le et exécute-le !</b></p>
+        <div class="py-editor" data-python>
+          <div class="py-toolbar">
+            <button type="button" class="btn py-run">▶ Exécuter</button>
+            <button type="button" class="btn ghost py-reset">Réinitialiser</button>
+            <span class="py-status"></span>
+          </div>
+          <textarea class="py-code" spellcheck="false">def ip_valide(ip):
+    parties = ip.split(".")
+    if len(parties) != 4:
+        return False
+    for p in parties:
+        if not p.isdigit():
+            return False
+        n = int(p)
+        if n < 0 or n > 255:
+            return False
+    return True
+
+ip_source = "192.168.1.10"
+ip_destination = "8.8.8.8"
+message = "Bonjour, voici ma page web !"
+
+if ip_valide(ip_source) and ip_valide(ip_destination):
+    print("Envoi de :", repr(message))
+    print("De  :", ip_source)
+    print("Vers:", ip_destination)
+    print("Message transmis sur le réseau ✔")
+else:
+    print("Adresse IP invalide, transmission annulée ✘")
+
+# Essaie : remplace l'IP de destination par "256.1.1.1" ou "abc"
+# et observe ce que le routeur ferait !</textarea>
+          <pre class="py-output">(clique sur « Exécuter » pour lancer le code)</pre>
+        </div>
+        <p class="py-hint">Astuce : le bouton « Réinitialiser » remet le code de départ. La première exécution charge l'interpréteur Python dans ton navigateur (quelques secondes).</p>
+      </div>
+    </div>
+
     <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
     <div class="activity reveal">
       <div class="activity-head">
@@ -89,5 +136,6 @@
 
   <div id="footer-slot"></div>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/python.js"></script>
 </body>
 </html>

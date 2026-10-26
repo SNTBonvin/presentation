@@ -85,6 +85,56 @@
       </div>
     </div>
 
+    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Python</span>
+        <h3>Transforme une image en niveaux de gris</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Chaque pixel d'une photo couleur est codé en <b>RVB</b> : trois nombres (Rouge, Vert, Bleu). Le programme ci-dessous applique la <b>formule de luminance</b> — la même que celle utilisée par les appareils photo et les logiciels de retouche — pour convertir une petite image couleur en niveaux de gris. <b>Exécute-le et observe l'image en « ASCII art » !</b></p>
+        <div class="py-editor" data-python>
+          <div class="py-toolbar">
+            <button type="button" class="btn py-run">▶ Exécuter</button>
+            <button type="button" class="btn ghost py-reset">Réinitialiser</button>
+            <span class="py-status"></span>
+          </div>
+          <textarea class="py-code" spellcheck="false"># Une image = une grille de pixels RVB (ici 8x6, valeurs 0-255)
+image = [
+    [(255,0,0), (0,255,0), (0,0,255), (255,255,0), (0,255,255), (255,0,255), (128,128,128), (255,255,255)],
+    [(255,0,0), (0,255,0), (0,0,255), (255,255,0), (0,255,255), (255,0,255), (64,64,64), (0,0,0)],
+    [(200,100,50), (50,200,100), (100,50,200), (250,250,250), (10,10,10), (90,180,90), (30,30,200), (180,180,180)],
+    [(0,0,0), (255,255,255), (128,0,0), (0,128,0), (0,0,128), (255,128,0), (0,255,128), (128,0,255)],
+    [(60,60,60), (200,200,200), (100,100,100), (150,150,150), (220,220,220), (40,40,40), (170,170,170), (90,90,90)],
+    [(255,200,200), (200,255,200), (200,200,255), (255,255,200), (200,255,255), (255,200,255), (30,30,30), (240,240,240)],
+]
+
+def luminance(r, v, b):
+    """Formule officielle de luminance (perception de l'œil)."""
+    return 0.299 * r + 0.587 * v + 0.114 * b
+
+rampes = " .:-=+*#%@"  # du plus clair au plus foncé
+
+print("Image en niveaux de gris (ASCII art) :")
+for ligne in image:
+    for r, v, b in ligne:
+        gris = luminance(r, v, b)
+        index = int(gris / 256 * len(rampes))
+        print(rampes[index], end="")
+    print()
+
+print()
+print("Chaque pixel RVB devient UN seul nombre (le gris).")
+
+# Défi : change la rampe pour inverser l'image
+# (le noir devient blanc et inversement)</textarea>
+          <pre class="py-output">(clique sur « Exécuter » pour lancer le code)</pre>
+        </div>
+        <p class="py-hint">Astuce : sur une vraie photo de 12 mégapixels, ce calcul serait répété 12 millions de fois. Les ordinateurs font ça en une fraction de seconde — c'est la puissance du traitement d'image numérique.</p>
+      </div>
+    </div>
+
     <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
     <div class="activity reveal">
       <div class="activity-head">
@@ -101,5 +151,6 @@
 
   <div id="footer-slot"></div>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/python.js"></script>
 </body>
 </html>

@@ -81,6 +81,55 @@ Bernard;Emma;2nde 2;11</textarea>
       </div>
     </div>
 
+    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python.</small></h2>
+    <div class="activity reveal">
+      <div class="activity-head">
+        <span class="badge">Python</span>
+        <h3>Lire un CSV et calculer les moyennes</h3>
+        <span class="time">⏱ 10 min</span>
+      </div>
+      <div class="activity-body">
+        <p>Les données structurées, ça se traite avec un programme ! Le code ci-dessous lit un fichier CSV (le carnet de notes de l'activité précédente) avec le module <code>csv</b>, calcule la moyenne de chaque élève et affiche le classement. <b>Exécute-le, puis ajoute un élève au CSV !</b></p>
+        <div class="py-editor" data-python>
+          <div class="py-toolbar">
+            <button type="button" class="btn py-run">▶ Exécuter</button>
+            <button type="button" class="btn ghost py-reset">Réinitialiser</button>
+            <span class="py-status"></span>
+          </div>
+          <textarea class="py-code" spellcheck="false">import csv
+import io
+
+donnees_csv = """nom;prenom;note1;note2;note3
+Martin;Lucas;14;12;16
+Bernard;Emma;11;13;12
+Durand;Sarah;15;12;13,5
+"""
+
+fichier = io.StringIO(donnees_csv)
+lecteur = csv.DictReader(fichier, delimiter=";")
+
+resultats = []
+for ligne in lecteur:
+    n1 = float(ligne["note1"])
+    n2 = float(ligne["note2"])
+    n3 = float(ligne["note3"].replace(",", "."))
+    moyenne = (n1 + n2 + n3) / 3
+    resultats.append((ligne["nom"], ligne["prenom"], round(moyenne, 2)))
+
+resultats.sort(key=lambda e: e[2], reverse=True)
+
+print("=== Classement de la classe ===")
+for i, (nom, prenom, moy) in enumerate(resultats, start=1):
+    print(i, ".", prenom, nom, "->", moy, "/ 20")
+
+# Défi : calcule la moyenne de toute la classe,
+# puis affiche combien d'élèves ont la moyenne.</textarea>
+          <pre class="py-output">(clique sur « Exécuter » pour lancer le code)</pre>
+        </div>
+        <p class="py-hint">En Python, <code>csv.DictReader</code> transforme chaque ligne du CSV en dictionnaire : les descripteurs de la première ligne deviennent les clés. C'est exactement comme cela que des millions de fichiers de données sont traités chaque jour.</p>
+      </div>
+    </div>
+
     <h2 class="section-title reveal">Auto-évaluation<small>Quiz de fin de séquence — correction immédiate.</small></h2>
     <div class="activity reveal">
       <div class="activity-head">
@@ -97,5 +146,6 @@ Bernard;Emma;2nde 2;11</textarea>
 
   <div id="footer-slot"></div>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/python.js"></script>
 </body>
 </html>
