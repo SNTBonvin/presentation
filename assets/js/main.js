@@ -512,27 +512,40 @@ function initPixelCam() {
     "gggggtTtgggggggg",
   ];
   const COLS = 16, ROWS = 12;
+  const S = 16;
+  const hr = document.createElement("canvas");
+  hr.width = COLS * S;
+  hr.height = ROWS * S;
+  const hctx = hr.getContext("2d");
+  SCENE.forEach((row, y) => {
+    row.split("").forEach((ch, x) => {
+      hctx.fillStyle = PAL[ch] || "#000";
+      hctx.fillRect(x * S, y * S, S, S);
+    });
+  });
   function draw() {
     const cell = parseInt(slider.value, 10);
-    canvas.width = COLS * cell;
-    canvas.height = ROWS * cell;
-    SCENE.forEach((row, y) => {
-      row.split("").forEach((ch, x) => {
-        ctx.fillStyle = PAL[ch] || "#000";
-        ctx.fillRect(x * cell, y * cell, cell, cell);
-      });
-    });
+    const gw = Math.floor(hr.width / cell);
+    const gh = Math.floor(hr.height / cell);
+    canvas.width = gw;
+    canvas.height = gh;
+    for (let gy = 0; gy < gh; gy++) {
+      for (let gx = 0; gx < gw; gx++) {
+        const data = hctx.getImageData(gx * cell + (cell >> 1), gy * cell + (cell >> 1), 1, 1).data;
+        ctx.fillStyle = "rgb(" + data[0] + "," + data[1] + "," + data[2] + ")";
+        ctx.fillRect(gx, gy, 1, 1);
+      }
+    }
     sizeOut.textContent = cell + " px";
-    const w = COLS * cell, h = ROWS * cell;
-    const px = w * h;
+    const px = gw * gh;
     const octets = px * 3;
     readout.textContent =
-      "Grille : " + COLS + " × " + ROWS + " = " + (COLS * ROWS) + " « gros pixels »\n" +
-      "Image affichée : " + w + " × " + h + " px = " + px + " pixels\n" +
+      "Grille : " + gw + " × " + gh + " = " + px + " pixels affichés\n" +
       "Poids brut RVB (3 octets/pixel) : " + octets + " octets ≈ " + (octets / 1024).toFixed(1) + " Ko\n\n" +
-      "→ Une vraie photo de 12 Mpx pèse ~36 Mo brut !\n" +
-      "La compression JPEG divise par ~10 en supprimant\n" +
-      "les détails que l'œil ne voit pas.";
+      "→ Plus le pixel est gros, moins il y en a :\n" +
+      "l'image perd en détails. Une vraie photo de 12 Mpx\n" +
+      "pèse ~36 Mo brut ; la compression JPEG divise\n" +
+      "par ~10 en supprimant ce que l'œil ne voit pas.";
   }
   slider.addEventListener("input", draw);
   draw();
