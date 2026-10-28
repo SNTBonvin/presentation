@@ -85,53 +85,111 @@
       </div>
     </div>
 
-    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python.</small></h2>
+    <h2 class="section-title reveal">Activité Python<small>⏱ 10 minutes — le code s'exécute directement dans cette page, dans une vraie console Python (comme sur console.basthon.fr).</small></h2>
     <div class="activity reveal">
       <div class="activity-head">
         <span class="badge">Python</span>
-        <h3>Transforme une image en niveaux de gris</h3>
+        <h3>Dessine un personnage pixel par pixel</h3>
         <span class="time">⏱ 10 min</span>
       </div>
       <div class="activity-body">
-        <p>Chaque pixel d'une photo couleur est codé en <b>RVB</b> : trois nombres (Rouge, Vert, Bleu). Le programme ci-dessous applique la <b>formule de luminance</b> — la même que celle utilisée par les appareils photo et les logiciels de retouche — pour convertir une petite image couleur en niveaux de gris. <b>Exécute-le et observe l'image en « ASCII art » !</b></p>
-        <div class="py-editor" data-python>
+        <p>Une image numérique, c'est une grille de pixels placés à des coordonnées <b>(x, y)</b> : x pour la colonne (de 0 à 7, gauche → droite), y pour la ligne (de 0 à 7, haut → bas). Le code ci-dessous sait dessiner un pixel coloré avec une seule instruction : <code>pixel(x, y, couleur)</code>. Regarde le modèle, clique sur « Exécuter », puis termine le visage et les chaussures en remplaçant les 4 <code>blanc</code> restants par la bonne couleur !</p>
+
+        <div class="mario-zone">
+          <div class="mario-panel">
+            <span>Le modèle</span>
+            <div class="mario-grid" aria-hidden="true">
+              <i></i><i></i><i style="background:#d92424"></i><i style="background:#d92424"></i><i style="background:#d92424"></i><i style="background:#d92424"></i><i></i><i></i>
+              <i></i><i style="background:#d92424"></i><i style="background:#d92424"></i><i style="background:#d92424"></i><i style="background:#d92424"></i><i style="background:#d92424"></i><i style="background:#d92424"></i><i></i>
+              <i></i><i style="background:#d92424"></i><i style="background:#ffce9e"></i><i style="background:#ffce9e"></i><i style="background:#ffce9e"></i><i style="background:#ffce9e"></i><i style="background:#d92424"></i><i></i>
+              <i></i><i style="background:#ffce9e"></i><i style="background:#5c3a14"></i><i style="background:#ffce9e"></i><i style="background:#ffce9e"></i><i style="background:#5c3a14"></i><i style="background:#ffce9e"></i><i></i>
+              <i></i><i style="background:#ffce9e"></i><i style="background:#ffce9e"></i><i style="background:#ffce9e"></i><i style="background:#ffce9e"></i><i style="background:#ffce9e"></i><i style="background:#ffce9e"></i><i></i>
+              <i></i><i></i><i style="background:#245ac4"></i><i style="background:#245ac4"></i><i style="background:#245ac4"></i><i style="background:#245ac4"></i><i></i><i></i>
+              <i></i><i style="background:#245ac4"></i><i style="background:#245ac4"></i><i style="background:#5c3a14"></i><i style="background:#245ac4"></i><i style="background:#245ac4"></i><i style="background:#245ac4"></i><i></i>
+              <i></i><i></i><i style="background:#5c3a14"></i><i></i><i></i><i style="background:#5c3a14"></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="mario-panel">
+            <span>Ton dessin</span>
+            <div class="mario-canvas-wrap">
+              <canvas id="mario-canvas" width="8" height="8"></canvas>
+            </div>
+          </div>
+          <ul class="mario-legend">
+            <li><i style="background:#d92424"></i> <b>rouge</b> — la casquette</li>
+            <li><i style="background:#ffce9e"></i> <b>peau</b> — le visage</li>
+            <li><i style="background:#5c3a14"></i> <b>marron</b> — moustache &amp; chaussures</li>
+            <li><i style="background:#245ac4"></i> <b>bleu</b> — la salopette</li>
+          </ul>
+        </div>
+
+        <div class="py-editor" data-python data-canvas="mario-canvas">
           <div class="py-toolbar">
             <button type="button" class="btn py-run">▶ Exécuter</button>
             <button type="button" class="btn ghost py-reset">Réinitialiser</button>
             <span class="py-status"></span>
           </div>
-          <textarea class="py-code" spellcheck="false"># Une image = une grille de pixels RVB (ici 8x6, valeurs 0-255)
-image = [
-    [(255,0,0), (0,255,0), (0,0,255), (255,255,0), (0,255,255), (255,0,255), (128,128,128), (255,255,255)],
-    [(255,0,0), (0,255,0), (0,0,255), (255,255,0), (0,255,255), (255,0,255), (64,64,64), (0,0,0)],
-    [(200,100,50), (50,200,100), (100,50,200), (250,250,250), (10,10,10), (90,180,90), (30,30,200), (180,180,180)],
-    [(0,0,0), (255,255,255), (128,0,0), (0,128,0), (0,0,128), (255,128,0), (0,255,128), (128,0,255)],
-    [(60,60,60), (200,200,200), (100,100,100), (150,150,150), (220,220,220), (40,40,40), (170,170,170), (90,90,90)],
-    [(255,200,200), (200,255,200), (200,200,255), (255,255,200), (200,255,255), (255,200,255), (30,30,30), (240,240,240)],
-]
+          <textarea class="py-code" spellcheck="false"># ===================================================
+#  Dessine un personnage pixel par pixel (8x8 pixels)
+# ===================================================
+# "pixel" sait colorier une case de la grille à côté du code.
+# Tu n'as pas besoin de comprendre comment, juste comment l'utiliser !
+from js import sntDrawPixel
+def pixel(x, y, couleur):
+    r, v, b = couleur
+    sntDrawPixel("mario-canvas", x, y, r, v, b)
 
-def luminance(r, v, b):
-    """Formule officielle de luminance (perception de l'œil)."""
-    return 0.299 * r + 0.587 * v + 0.114 * b
+# Palette de couleurs (Rouge, Vert, Bleu), de 0 à 255
+blanc  = (255, 255, 255)
+rouge  = (217, 36, 36)    # la casquette
+peau   = (255, 206, 158)  # le visage
+marron = (92, 58, 20)     # moustache et chaussures
+bleu   = (36, 90, 196)    # la salopette
 
-rampes = " .:-=+*#%@"  # du plus clair au plus foncé
+# 1. Fond blanc (une double boucle : une ligne, puis une colonne)
+for x in range(8):
+    for y in range(8):
+        pixel(x, y, blanc)
 
-print("Image en niveaux de gris (ASCII art) :")
-for ligne in image:
-    for r, v, b in ligne:
-        gris = luminance(r, v, b)
-        index = int(gris / 256 * len(rampes))
-        print(rampes[index], end="")
-    print()
+# 2. La casquette
+for x in range(2, 6):
+    pixel(x, 0, rouge)
+for x in range(1, 7):
+    pixel(x, 1, rouge)
+pixel(1, 2, rouge)
+pixel(6, 2, rouge)
 
-print()
-print("Chaque pixel RVB devient UN seul nombre (le gris).")
+# 3. Le visage
+for x in range(2, 6):
+    pixel(x, 2, peau)
+for x in range(1, 7):
+    pixel(x, 4, peau)
+pixel(1, 3, peau)
+pixel(3, 3, peau)
+pixel(4, 3, peau)
+pixel(6, 3, peau)
 
-# Défi : change la rampe pour inverser l'image
-# (le noir devient blanc et inversement)</textarea>
+# 4. La salopette
+for x in range(2, 6):
+    pixel(x, 5, bleu)
+for x in range(1, 7):
+    pixel(x, 6, bleu)
+pixel(3, 6, marron)  # la boucle de ceinture
+
+# À TOI DE JOUER : regarde le modèle à gauche, puis remplace
+# les 4 "blanc" ci-dessous par la bonne couleur !
+pixel(2, 3, blanc)   # un trait de moustache
+pixel(5, 3, blanc)   # un trait de moustache
+pixel(2, 7, blanc)   # une chaussure
+pixel(5, 7, blanc)   # une chaussure
+
+print("Bravo, ton personnage est prêt !")
+
+# Défi : une fois terminé, change les valeurs de "rouge" ou "bleu"
+# tout en haut du code et relance — tu peux changer sa tenue !</textarea>
           <pre class="py-output">(clique sur « Exécuter » pour lancer le code)</pre>
         </div>
-        <p class="py-hint">Astuce : sur une vraie photo de 12 mégapixels, ce calcul serait répété 12 millions de fois. Les ordinateurs font ça en une fraction de seconde — c'est la puissance du traitement d'image numérique.</p>
+        <p class="py-hint">C'est exactement comme ça qu'une vraie photo est fabriquée — avec des millions de pixels au lieu de 64 ! En seconde, tu reverras ces boucles <code>for</code> pour répéter des instructions, et la bibliothèque <code>PIL</code> (<i>Pillow</i>) pour manipuler de vraies images.</p>
       </div>
     </div>
 

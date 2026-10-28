@@ -6,6 +6,27 @@
 
 const PYODIDE_BASE = "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/";
 
+/* Colorie un pixel d'un <canvas> depuis Python (utilisé par l'atelier « pixel art »).
+   Le canvas a sa résolution réelle réglée sur la taille de l'image (ex. 8x8) et
+   n'est agrandi qu'en CSS (image-rendering: pixelated), donc fillRect(x, y, 1, 1)
+   colorie exactement une case de la grille. */
+window.sntDrawPixel = function (canvasId, x, y, r, v, b) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = `rgb(${r},${v},${b})`;
+  ctx.fillRect(x, y, 1, 1);
+};
+
+/* Remet un canvas de pixel art dans son état neutre (avant toute exécution). */
+window.sntClearCanvas = function (canvasId) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#e8e8ef";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+};
+
 let pyodidePromise = null;
 
 function getPyodide() {
@@ -48,6 +69,9 @@ function initPythonEditor(el) {
   const status = el.querySelector(".py-status");
   if (!code || !out || !runBtn) return;
 
+  const canvasId = el.dataset.canvas || null;
+  if (canvasId) window.sntClearCanvas(canvasId);
+
   code.value = dedent(code.value);
   const starter = code.value;
   const idleMsg = "(clique sur « Exécuter » pour lancer le code)";
@@ -67,6 +91,7 @@ function initPythonEditor(el) {
       code.value = starter;
       out.textContent = idleMsg;
       if (status) status.textContent = "";
+      if (canvasId) window.sntClearCanvas(canvasId);
     });
   }
 
